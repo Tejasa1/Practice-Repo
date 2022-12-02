@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class StudentResultExample {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        Map<Student, List> data = new HashMap<>();
+        Student s1 = new Student(1001, "praveen");
+        Student s2 = new Student(2002, "kiran");
+        List<Integer> s1marks = new ArrayList<>();
+        List<Integer> s2marks = new ArrayList<>();
+        s1marks.add(80);
+        s1marks.add(75);
+        s1marks.add(75);
+        s2marks.add(68);
+        s2marks.add(59);
+        s2marks.add(64);
+
+        data.put(s1, s1marks);
+        data.put(s2, s2marks);
+        // System.out.println(data);
+
+        Set<Entry<Student, List>> entries = data.entrySet();
+        for (Map.Entry<Student, List> state : entries) {
+            Student s = state.getKey();
+            List<Integer> l = state.getValue();
+            int sum = 0;
+            for (int x : l)
+                sum = sum + x;
+            System.out.println("Htno  :" + s.getHtno() + " Name :  " + s.getName() + " Marks =  " + state.getValue()
+                    + "Total " + sum);
+
+        }
+
+    }
+
+}

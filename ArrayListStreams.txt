@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamExample2 {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        ArrayList<Integer> nos = new ArrayList<>();
+        nos.add(10);
+        nos.add(22);
+        nos.add(5);
+        nos.add(17);
+        nos.add(18);
+
+        List<String> names = new ArrayList<>();
+        names.add("praveen");
+        names.add("kumar");
+        names.add("sai");
+        names.add("anil");
+
+        Stream s = nos.stream();
+        Predicate<Integer> p = x->x%2==0;
+        Function<Integer,Integer> f = x->x+10;
+
+    //    s.filter(p).forEach(System.out::println);
+        s.map(f).forEach(System.out::println);
+
+        List<Integer> l2 = nos.stream()
+                              .filter(i -> i%2==0)
+                              .collect(Collectors.toList());
+        System.out.println(l2);
+
+        List<Integer> l3 =nos.stream()
+                            .map(f)
+                            .collect(Collectors.toList());
+        System.out.println(l3);
+
+        List<String> l4 =names.stream().map(str->str.toUpperCase())
+                    //names.stream().filter(str->str.length()>4)
+                    //.forEach(System.out::println);
+                      .collect(Collectors.toList());
+        System.out.println(l4);
+
+    }
+
+}

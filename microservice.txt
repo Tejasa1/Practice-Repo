@@ -1,0 +1,178 @@
+Micro services
+
+
+services developed in REST API format
+data is developed in JSON format
+Main purpose of SpringBoot is to create REST API
+
+communication betwn applns is governed by "service agreement"
+
+---------------------------------------------------------------
+
+
+
+[12:36 PM] Praveen Kumar  G S
+
+@RestController
+@RequestMapping("/class1")
+public class DemoController {            
+@GetMapping("/test1")    
+public String doTest1() {        
+return "Hi, I am from test1 get method of controller class";    
+}
+
+        
+@GetMapping("/test2")    
+public String doTest2() {        
+return "Hi, I am from test2 get method of controller class";    
+}            
+
+@PostMapping("/post")    
+public String posts() {        
+return "Hi, I am from post method";    
+}            
+
+@DeleteMapping("/delete")    
+public String deltes() {        
+return "Hi, I am from delete method";    
+}        
+
+@PutMapping("/puts")    
+public String putmethod() {        
+return "Hi, I am from put method";    
+}
+
+}
+
+
+[12:55 PM] Praveen Kumar  G S
+@PostMapping("/post/{name}/{city}")    
+public String posts(@PathVariable("name") String x, @PathVariable("city") String c) {        
+return "Hi, "+x + " Welcome to "+c;    
+}    
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+Path Variable --> variables in path
+Request Body --> variable in JSON format
+Request Param --> variable in key value format
+
+
+
+
+Dependencies:
+Spring web
+spring data jpa
+spring dev tools
+mysql driver
+
+---------------------------------------------------------------------------
+[12:55 PM] Praveen Kumar  G S
+@PostMapping("/post/{name}/{city}")    public String posts(@PathVariable("name") String x, @PathVariable("city") String c) {        return "Hi, "+x + " Welcome to "+c;    }    
+
+[2:46 PM] Praveen Kumar  G S
+    @GetMapping("/params")    public String getRequestParams(@RequestParam("city") String x) {        return x;    }        @PostMapping("/getstudent")    public String getStudentData(@RequestBody Student student) {        return "Details :" +student.getHtno()+" "+student.getName()+" "+student.getBranch();    }
+
+[2:47 PM] Praveen Kumar  G S
+    @GetMapping("/studentsList")    public List<Student> getStudentList() {        List<Student> students = new ArrayList<>();        students.add(new Student(1001,"praveen","mech"));        students.add(new Student(1002,"sunil","civil"));        students.add(new Student(1003,"kamal","eee"));                return students;    }
+
+[3:43 PM] Praveen Kumar  G S
+HTNO  | int        | NAME  | varchar(20) | CITY  | varchar(20) 
+| STATE | varchar(20)
+
+[3:43 PM] Praveen Kumar  G S
+CREATE TABLE SSC (HTNO INT, NAME VARCHAR(20), CITY VARCHAR(20), STATE VARCHAR(20));
+
+[3:46 PM] Praveen Kumar  G S
+INSERT INTO SSC VALUES(10,'PRAVEEN''KOLKATA','WESTBENGAL');
+INSERT INTO SSC VALUES(4,'KUMAR''CHENNAI','TAMILNADU');
+INSERT INTO SSC VALUES(19,'SUNIL''VIZAG','ANDHRA PRADESH');
+INSERT INTO SSC VALUES(6,'MAHESH''BENGALURU','KARNATAKA');
+INSERT INTO SSC VALUES(14,'ANIL''MUMBAI','MAHARASTRA');
+
+[3:47 PM] Praveen Kumar  G S
+1. Spring Web
+2. Spring DevTools
+3. Spring data jpa
+4. MySQL driver
+
+[3:47 PM] Praveen Kumar  G S
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ssc")
+public class Ssc {        
+@Id    int htno;        
+@Column    String name;        
+@Column    String city;        
+@Column    String state;            
+public Ssc() {     
+       }            
+public Ssc(int htno, String name, String city, String state) {        
+super();        
+this.htno = htno;        
+this.name = name;        
+this.city = city;        
+this.state = state;    
+}
+
+   public int getHtno() {        
+return htno;    
+}    
+public void setHtno(int htno) {        
+this.htno = htno;    
+}    
+public String getName() {        
+return name;    
+}    
+public void setName(String name) {        
+this.name = name; 
+   }    
+public String getCity() {        
+return city;   
+ }    
+public void setCity(String city) {        
+this.city = city; 
+   }    
+public String getState() {        
+return state;  
+  }    
+public void setState(String state) {        
+this.state = state;  
+  }    
+
+}
+
+-------------------------------------------------------------------------------------
+
+when we give url in microservice our location is exposed
+if x:8082 and y:8087  and   noteservice has to communicate
+then how can it communicate with both using a single url
+(url example: http://localhost:8082/comments)
+
+for this we use Discovery Server
+
+-------------------------------------------------------------------------------------
+
+In Zuul Gateway:
+both should filter must be true --> then it looks for the order 
+--> then executes run().
+
+-----------------------------------------------
+resilience4j also called circuitbreaker
+for handling whitelabel error(service not available)
+you can use @Retry(name="", fallbackMethod="") 
+Retry basically makes system wait and call for service for defined number of times.
+here fallback method can return dummy data when service in unavailable.
+
+--------------------------------------------------------------------------------------

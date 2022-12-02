@@ -1,0 +1,149 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetExample {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        Set<String> hs = new HashSet<>();
+        hs.add("India");
+        hs.add("Japan");
+        hs.add("China");
+        hs.add("India");
+    //    hs.add(null);
+        System.out.println(hs);
+
+    }
+
+}
+----------------------------
+import java.util.Set;
+import java.util.TreeSet;
+
+public class TreeSetEmployeeExample {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Employee emp1 = new Employee("praveen","finance","mangaer");
+        Employee emp2 = new Employee("kumar","quality","lead");
+        Employee emp3 = new Employee("sunil","marketing","executive");
+        Set<Employee> hs = new TreeSet<>();
+        hs.add(emp1);
+        hs.add(emp2);
+        hs.add(emp3);
+        for(Employee e: hs)
+        System.out.println(e);
+
+    }
+
+}
+-------------------------------------
+[10:18 AM] Praveen Kumar  G S
+
+public class Student{
+    int htno;
+    String name;
+    Student(){
+    }
+    public Student(int htno, String name) {
+        super();
+        this.htno = htno;
+        this.name = name;
+    }
+    public int getHtno() {
+        return htno;
+    }
+    public void setHtno(int htno) {
+        this.htno = htno;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public String toString() {
+        return "Student [htno=" + htno + ", name=" + name + "]";
+    }
+}
+-----------------------------------------------------------------------------------------
+
+[10:18 AM] Praveen Kumar  G S
+
+import java.util.Comparator;
+import java.util.TreeSet;
+class StudentHtnoComparator implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2) {
+        // TODO Auto-generated method stub
+        return o1.getHtno()- o2.getHtno();
+    }
+}
+class StudentNameComparator implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2) {
+        // TODO Auto-generated method stub
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+public class StudentTreeSetExample {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Comparator<Student> c1 = (s1,s2)-> s1.getHtno()-s2.getHtno();
+        Comparator<Student> c2 =(s1,s2)->s1.getName().compareTo(s2.getName());
+        Student s1 = new Student(1001,"sunil");
+        Student s2 = new Student(3002,"praveen");
+        StudentNameComparator ns = new StudentNameComparator();
+        StudentHtnoComparator hts = new  StudentHtnoComparator();
+        TreeSet<Student> ts1 = new TreeSet<Student>(c1);
+        ts1.add(s1);
+        ts1.add(s2);
+        System.out.println(ts1);
+        TreeSet<Student> ts2 = new TreeSet<>(c2);
+        ts2.add(s1);
+        ts2.add(s2);
+        System.out.println(ts2);
+    }
+}
+
+-----------------------------------
+[10:18 AM] Praveen Kumar  G S
+
+import java.util.Comparator;
+import java.util.TreeSet;
+class StudentHtnoComparator implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2) {
+        // TODO Auto-generated method stub
+        return o1.getHtno()- o2.getHtno();
+    }
+}
+class StudentNameComparator implements Comparator<Student>{
+    @Override
+    public int compare(Student o1, Student o2) {
+        // TODO Auto-generated method stub
+        return o1.getName().compareTo(o2.getName());
+    }
+}
+public class StudentTreeSetExample {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Comparator<Student> c1 = (s1,s2)-> s1.getHtno()-s2.getHtno();
+        Comparator<Student> c2 =(s1,s2)->s1.getName().compareTo(s2.getName());
+        Student s1 = new Student(1001,"sunil");
+        Student s2 = new Student(3002,"praveen");
+        StudentNameComparator ns = new StudentNameComparator();
+        StudentHtnoComparator hts = new  StudentHtnoComparator();
+        TreeSet<Student> ts1 = new TreeSet<Student>(c1);
+        ts1.add(s1);
+        ts1.add(s2);
+        System.out.println(ts1);
+        TreeSet<Student> ts2 = new TreeSet<>(c2);
+        ts2.add(s1);
+        ts2.add(s2);
+        System.out.println(ts2);
+    }
+}
+

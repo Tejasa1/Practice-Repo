@@ -1,0 +1,260 @@
+DevOps
+
+
+DEV - Developers
+
+UAT - User Acceptance Testing
+
+PROD - Production Operations
+
+
+Agenda:
+
+Git --- Version control tools
+Maven --build management tool
+Jenkins- CI/CD tool
+Docker-- Containization tool/ create virtual env
+Kubernetes- manage the docker virtual machines
+
+
+Git:
+
+git add . ----> all files from working dir to staging area
+git add fi,f2,f3,f4 ---> only these files are send to staging area
+
+
+git commit -m "description"
+
+git push
+
+
+
+steps:
+
+git init
+git add .
+git commit -m ""
+git branch -M main
+git remote add origin(name for main url)  url
+git push -u origin main
+
+
+git clone
+git status
+
+git add filename
+git rm -r filename
+
+git branch [branchname]
+git add
+git commit
+git push origin [branchname]
+
+git diff [main] [branch]
+
+
+
+
+c:demos> java 
+
+Docker Client
+Docker Daemon
+Docker Index
+
+1.docker management commands
+-used to manage containers and images
+
+2.docker file commands
+-used to create images
+
+
+
+
+dcoker --version
+docker images --> list of all images
+docker ps --> all running container
+docker ps -a --> all running and stopped container
+docker rm <containername> -->to remove a container it should be exited or stopped
+docker rm -f <containername> --> forcefully remove running container but not suggested
+
+docker rmi <imagename>/<imageid>
+to remove image
+(when you remove an image there should not be any container
+associated with it)
+
+
+docker rmi -f <imagename>/<imageid>
+forcefully remove
+
+docker start <containername>/<containerid>
+to start a stopped/exited container
+
+
+docker stop <containername>/<containerid>
+to stop the running container
+
+docker pull <imagename>
+used to pull an public image from dockerhub(not private image)
+
+
+Containers are created by running an image
+------------------------------------------
+
+first pull the image
+
+then run it
+
+docker run --name <containername> -d -p <port> <imagename>
+(-d: makes container run in background and if you dont use you may
+enter inside container)
+(-p: port exposure)
+ 
+
+docker exec -it <containername> /bin/bash
+to enter inside a container running in background
+(you can go internally to only running container)
+(use exit to exit from internal container)
+
+
+-to create network: 
+docker network create <networkname>
+
+-to list network:
+docker network ls
+
+-attach a container to network
+docker run -d -p 8082:80 --network <networkname> --name <containername> <imagename>
+
+to build image:
+docker build -t <imagename> [<path> or .]
+(dot means file is in same working dir)
+
+
+docker volume create <volname>
+
+
+
+Dockerfile commands
+--------------------
+
+Dockerfile --> simple notepad file which consist instruction to build image
+instructions are given through dockerfile commands
+
+
+1. FROM --> used to represent the base image
+(if you want to run java appln then base image must be of java environment)
+
+2. ADD --> used to copy contents from source to container
+for example: ADD d://configs/f1.txt /var/lib
+	     ADD http://url /var/lib 
+	     ADD xyz.zip /var/lib -- first extract the zip and then copy
+
+3. COPY  used to copy contents from local machine to container
+COPY d://configs/f1.txt /var/lib
+
+
+4. RUN -- this command is used to run any linux based command
+RUN mkdir temp
+
+
+5. EXPOSE -- this is used to expose a aaplication running inside container to host m/c
+
+
+6. VOLUME -- this is used to mount thr host machine storage to container
+VOLUME d://data /var/lib
+
+
+7. ENV -- It is used to set environment variables
+
+
+8. WORKDIR -- used to set a default work directory for container
+WORKDIR /tmp
+ADD f1.txt /   <----- instead of adding to root it will add to temp
+as it is our new workdir
+
+
+9. USER ---> we can set the default user the container
+
+
+10. CMD ---> is used to set a default entry command to run
+when the container is started
+
+
+
+
+using yaml file:
+docker-compose up -d 
+
+to scale:(multiple containers are created)
+docker-compose up -d --scale databases=3
+
+
+
+
+Jenkins
+----------
+Java based open source tool for CI and CD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

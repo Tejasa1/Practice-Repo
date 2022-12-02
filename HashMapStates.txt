@@ -1,0 +1,45 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class MapExample {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+
+        HashMap<String,String> hmap = new HashMap();
+        hmap.put("KA", "Karnataka");
+        hmap.put("TS", "Telengana");
+        hmap.put("TN", "Tamilnadu");
+        hmap.put("MH", "Maharastra");
+        hmap.put("AP", "Andhra Pradesh");
+        System.out.println(hmap);
+        hmap.putIfAbsent("MP", "Madhya Pradesh");
+        System.out.println(hmap);
+
+        System.out.println(hmap.get("TS"));
+
+        if(hmap.containsKey("TS"))
+            System.out.println("key avaialble");
+        else
+            System.out.println("key not available");
+
+        if(hmap.containsValue("Telengana"))
+            System.out.println("value avaialble");
+        else
+            System.out.println("value not available");
+
+        Set keys = hmap.keySet();
+        System.out.println(keys);
+
+        System.out.println(hmap.values());
+
+
+        Set<Map.Entry<String,String>> entries = hmap.entrySet();
+        for(Map.Entry<String, String> state: entries) {
+            System.out.println(state.getKey()+" --->  "+state.getValue());
+        }
+
+    }
+
+}

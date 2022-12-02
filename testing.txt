@@ -1,0 +1,508 @@
+Static : it is about prevention of defects, have checklist and process , 
+can be perform before compilation,cost is less, many meetings, 
+more review comments for good quality, verification, 
+ROI high(before dev phase)
+
+Dynamic : by executing program, find and fix defects, it gives bugs, 
+test cases, after compilation, cost is high, less meetings, 
+more defects are good for quality, validation, ROI low(after dev phase)
+
+
+Static testing techniques
+
+1.Informal Reviews
+2.Technical Reviews
+3.Walkthrough
+4.Inspection
+5.Static Code Review
+
+Dynamic Testing Techniques
+
+1.Unit Testing
+2.Integration Testing
+3.System Testing
+
+
+V-model Testing
+
+V-model verification phases
+
+1.Business Requirement analysis
+2.system design
+3.architectural design
+4.module design
+5.coding phase
+
+validation phase
+
+1.Unit Testing
+2.Integration Testing
+3.system testing
+4.acceptance testing
+
+V-model Application
+
+-requirements are well defined,clearly documented and fixed
+-product definition is stable
+-technology is not dynamic and well understood by project team
+-there are no ambiguous or undefined requirements
+-the project should be short
+
+advantages
+
+
+
+
+disadvantages
+
+
+
+roles and responsibility of s/w tester
+
+-knowledge of designing test suits and test design s/w
+-test documentation
+-responsible for walkthrough
+
+Testing Constraints
+
+-S/W testing constraints are the guidelines that provide direction and define
+acceptable parameters for s/w testing activities
+
+Examples of testing constraints include
+
+1.test scope
+2.test depth
+3.test effort
+4.testing techniques
+
+
+time and cost, skill categories
+
+The skill of human resources
+project size
+inadequate requirements
+s/w testability
+time
+cost
+test design
+
+
+
+Levels of testing
+1.Unit tesing = checks if s/w components are fulfilling the functionalities
+or not.
+2.integration testing = checks the data flow from one modules to other module.
+3.system testing = evaluates both functional needs for the testing.
+4.acceptance testing = checks the requirements of a specification or contract 
+are met as per its delivery.
+
+
+Test Coverage Matrix
+
+----------------------------------------------------------------------------
+Bug life cycle
+
+new
+open
+fixed
+pending req
+reset
+reopen
+defeered
+reject
+duplicate
+not a bug
+closed
+
+
+
+mandatory fields
+
+bug id
+project
+module
+build version
+
+environment
+description
+application
+priority
+severity
+reproduction steps
+tags
+screenshots
+system info
+actual result
+expected result
+
+assignee
+status
+comment
+
+
+priority:
+
+1.low
+2.medium
+3.high
+
+
+severity:
+
+1.critical
+2.major
+3.moderate
+4.minor
+5.cosmetic
+
+ 
+Agile methodology
+-it seperates the project dev life cycle into sprints
+-it follows an incremental approach
+-agile is known for its flexibility
+-agile can be consider as combination of many diff project
+-after each sprint test plan is reviewed
+-here req are expected to change and evovle
+-works exceptionally with time and material, it may increase stress
+-prefers small but dedicated teams with a high degree of co-ordination and 
+sync
+-product owner with team prepare req just about every day during a project
+-test team can take part in the req changes without problems
+-restriction of project details can be altered anytime during sdlc process
+-it is a type of s/w testing that involves all the members of the proj team,
+special experts and different phase and testing is performed along with dev
+phases that includes req, design cases
+
+
+Waterfall Methodology
+-sdlc proccess is divided into distinct phases
+-it is sequential design process
+-s/w dev will be completed as one single project
+-there is no scope of changing req once proj dev starts
+-all the proj dev phases design,dev,testing are completed once in here
+-test plan is rarely discussed during test phase
+-in this methology the testing phase comes after the build phase
+-team co-ordination and sync is very limited
+-business analyst prepares req before beginning of the proj
+-it is difficult for the tester to initiate any change in the req
+-detailed description needs to implement waterfall s/w dev approach 
+-it is a type of s/w testing in which testing is a differernt phase and 
+there are different steps in a sequential order
+-this process only after completion of one phase or one level, next level
+testing is carried out
+ 
+
+Difference between agile and waterfall
+
+API Testing (Application Program Interface)
+
+HTTP Methods
+
+Create-POST
+Read-GET
+Update-PUT
+Delete-DEL
+
+Testings:
+
+unit testing 
+functional testing
+load testing
+runtime error detection
+security testing
+web ui testing
+interoperability testing
+
+
+why to test API's
+
+test quality
+test coverage
+test reuse
+
+Tools for API
+
+Eclipse
+SOAP UI
+Runscope
+Parasoft
+IBM Rational
+HP Unified Functional Testing tool
+Microsoft Visual Studio
+Smarbear
+CTESK
+Curl
+
+
+
+Types of Testing
+
+Regression Testing
+	=checking the existing functionality whether any impact
+	 caused by the new functionality which is been added
+Retest Testing
+	=which verifies and validates the rectification of flaws
+	 and issues which caused s/w application to fail in a
+	 previous test.
+Smoke Testing
+	=Build id fine or not. Functionality is working fine or not.
+Sanity Testing
+	=ensuring that whether the fixation of previously detected 
+	 bugs and simultaneously to make sure any sort of minor or
+	 major changes or modification introduced in the code or 
+	 functionalities does not lead any new defect.
+Adhoc Testing
+	=exploring the application(without test case execution).
+
+User Acceptance/Beta/Acceptance Testing
+	=This testing done in user environment.
+
+
+
+Alpha Testing
+Cack-end Testing
+Browser Compatibility Testing
+End-to-End Testing
+Boundary value tesing
+comparision testing
+system testing
+exploratory testing
+white box testing
+black box testing
+functional testing
+Non functional testing
+
+
+Functional Testing
+
+unit testing
+integration testing
+regression testing
+reset testing
+smoke testing
+sanity testing
+beta/acceptance testing
+
+Non-Functional Testing
+
+Performance Testing
+Load Testing
+Stress Testing
+Volume Testing
+
+
+HTTP Methods
+
+GET
+POST
+PUT
+PATCH
+HEAD
+DELETE
+OPTION
+
+HTTP Codes
+
+1xx-Informational
+100-continue
+101-switching protocols
+102-proccessing
+103-early hints
+
+2xx-Successful
+200-ok
+201-created
+202-accepted
+203-non authorotative info
+204-no content
+205-reset content
+206-partial content
+207-multi status
+208-already reported
+
+3xx-Redirectional
+300-multiple choices
+301-mode permanently
+302-found
+303-see other
+304-not modified
+305-use proxy
+306-switch proxy
+307-temperory redirect
+308-comment redirect
+
+4xx-Client Error
+400-bad request
+401-unauthorized
+402-payment required
+403-forbidden
+404-no found
+408-method not allowed
+*410-not acceptable
+
+5xx-Service Error
+*500-internal server 
+*501-not implemented
+502-bad gateway
+503-service unavailable
+*504-gateway timemode
+505-http version not supported
+
+
+Quality Assurance
+method of making s/w appln with less defects before control with more
+quality
+
+Quality Control
+ensure that the proccess which are designed are followed or not and
+the end product is as per the std requirement or not.
+
+Cost of Quality
+
+prevention cost
+detection cost
+internal failure costs
+external failure costs
+
+
+DEFECT 
+BUG
+FAILURE
+
+Defect management process:
+-to prevent the defect
+-detection at early stage
+-reduce the impact
+-resolving or fixing defects
+-improving process and performance of s/w
+
+
+SOAP-Simple object access protocol
+UDDI-universal description discovery and integration
+WSDL-web services description language
+REST-representational state transfer
+HTTP-hyper text transmission protocol
+AMF-action message format
+
+SOAP UI features:
+-create test suite
+-create test case
+-create test steps
+
+SOAP UI can be used to both manual and automation
+In SOAP UI properties are available at test case,test suite,project
+
+Hierarchy: Project->test suite->test case->test steps
+
+
+Automation Testing Process
+-Testing Tool Selection
+-Define scope of Automation
+-Planning, Designing and Development
+-Test Execution
+-Maintainance
+
+Factor to select a particular tool for automation testing:
+-Environment Support
+-Ease of use
+-Testing of database
+-Object Identification
+-Image Testing
+-Error Recovery Testing
+-Object Mapping
+-Scripting language used
+-support for various types of test
+-easy to debug
+-extensive bug report and results
+-support for multiple testing framework
+
+
+
+Automation testing tools:
+-Ranorex
+-Kobiton
+-Zaptest
+-Lambda Test
+-Parasoft
+-AVO Azure
+-Keysight Egg Plant
+-Testrigor
+-Subject7
+-Selenium
+
+
+SAFAL - It is in-house developed test automation solution which
+	provides a cost effective alternative test automation 
+	solution over commercial tool
+
+
+Selenium - It is an open source and a portable automated s/w testing 
+	   tool for testing web applications. It has capability to 
+	   operate across different browser and OS. Selenium is not
+	   just a tool but a set of tools that helps tester to automate
+	   web based applications more efficiently
+
+
+-Selenium IDE
+-Selenium RC -> Remote Control
+-Selenium Webdriver
+-Selenium Grid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

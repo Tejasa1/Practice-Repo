@@ -1,0 +1,235 @@
+SQL
+--------------------------------------------------------------------
+Multiple values insert
+
+INSERT INTO FISCUSTOMERS(CID,NAME,ADDRESS,PIN)
+VALUES
+(1005,'KISHORE','CHENNAI',600001),
+(1006,'MAHESH','MUMBAI',400003),
+(1007,'SURESH','DELHI',110001);
+
+
+
+--------------------------------------------------------------------
+
+how to deal with json data:
+
+CREATE TABLE events(
+  id int auto_increment primary key,
+  event_name varchar(255),
+  visitor varchar(255),
+  properties json,
+  browser json
+);
+
+INSERT INTO fisevents  
+VALUES (
+  'pageview',
+   '1',
+   '{ "page": "/" }',
+   '{ "name": "Safari", "os": "Mac", "resolution": { "x": 1920, "y": 1080 } }'
+),
+('pageview',
+  '2',
+  '{ "page": "/contact" }',
+  '{ "name": "Firefox", "os": "Windows", "resolution": { "x": 2560, "y": 1600 } }'
+),
+(
+  'pageview',
+  '1',
+  '{ "page": "/products" }',
+  '{ "name": "Safari", "os": "Mac", "resolution": { "x": 1920, "y": 1080 } }'
+),
+(
+  'purchase',
+   '3',
+  '{ "amount": 200 }',
+  '{ "name": "Firefox", "os": "Windows", "resolution": { "x": 1600, "y": 900 } }'
+),
+(
+  'purchase',
+   '4',
+  '{ "amount": 150 }',
+  '{ "name": "Firefox", "os": "Windows", "resolution": { "x": 1280, "y": 800 } }'
+),
+(
+  'purchase',
+  '4',
+  '{ "amount": 500 }',
+  '{ "name": "Chrome", "os": "Windows", "resolution": { "x": 1680, "y": 1050 } }'
+);
+
+
+
+
+SELECT id, browser->'$.name' browser FROM events;
+
+
+
+SELECT browser->>'$.name' browser,
+      count(browser)
+FROM events
+GROUP BY browser->>'$.name';
+
+
+---------------------------------------------------------------------
+AutoIncrement
+
+CREATE TABLE gapemployees (
+    emp_no INT  AUTO_INCREMENT primary key,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+
+
+
+INSERT INTO gapemployees(first_name,last_name) VALUES('John','Doe'),
+                                                      ('Mary','Jane')
+
+
+
+---------------------------------------------------------------------
+Case Statements
+
+
+SELECT ename, sal,
+CASE
+    when sal >=1000 and sal<=2000 then 'Low salary'
+    when sal >2000 and sal<=3000 then 'average salary'
+    when sal >=3000 and sal <4000 then 'high salary'
+    when sal >=4000 then 'extemely high'
+    ELSE "very low salary"
+END
+FROM emp;
+
+
+
+----------------------------------------------------------------------
+Constraints
+
+NOT NULL
+
+DEFAULT(if no value provided then it will have a default value)
+
+UNIQUE(unique and not null will go hand in hand)
+
+CHECK(check for a condition mentioned)
+
+----------------------------------------------------------------------
+coalesce() method
+distinct
+between... and ...
+in
+like
+not like
+notations used with like and not like:
+	  "%"--> any number of char
+	  "_"-->only one char
+
+order by(display data in sorted order either ascending or descending)
+min()
+max()
+avg()
+count()
+-----------------------------------------------------------------------
+from dual dummy table
+abs(-m) ---> m
+mod(10,2) -->remainder
+round(1.23732,2) -->1.24
+truncate(1.23732,2) ->1.23
+greatest()
+least()
+upper()
+lower()
+initcap()
+length()
+substr()
+
+-------------------------------------------------------------------------
+ date functions from dual dummy table:
+
+sysdate
+add_months(x,y)
+last_day(x)
+next_day(x,day)
+
+date conversion from dual dummy table:
+to_char()
+to_date()
+
+group by
+
+-------------------------------------------------------------------------
+Joins
+
+Inner join --> only common between two tables --> intersection
+
+syntax:
+select columns
+from tableA
+inner join tableB
+on tableA.column = tableB.column(any condition);
+
+Left Outer join --> all from left table and only common records from right
+table are fetched
+
+syntax
+select columns
+from tableA
+left outer join tableB
+on condition
+
+---------------------------------------------------------------------------
+Indexes
+
+
+why to use?
+to reduce the searches made because indexes allows to use binary tree for 
+search and normally we use linear search
+
+Note: no limitations on number of indexes.
+
+
+syntax: 
+
+create index index_name
+from table_name(column_name);
+
+---------------------------------------------------------------------------
+Views
+
+join, group by, having, set, distinct
+
+
+syntax:
+create view view_name 
+from table_name
+where condition;
+
+
+to drop:
+drop view view_name;
+
+-----------------------------------------------------------------------------
+Roles:
+
+create role(always in root system):
+create role role_name identified by password;
+
+
+granting role to user:
+grant role_name to user_name; 
+grant all on table_name to role_name;
+
+
+
+
+
+ manager        clerk                customer
+  all     select and update           select      
+
+
+
+
+
+
